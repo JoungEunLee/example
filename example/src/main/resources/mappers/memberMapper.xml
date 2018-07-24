@@ -18,9 +18,9 @@
         SELECT ID, PW ,NAME FROM TEST.TEST
     </select>
     
-   <!--  <insert id="insertMember" resultType="memberVO">
+   <insert id="insertMember">
     	INSERT INTO TEST.TEST (id,pw,name) values(#{id},#{pw},#{name})
-    </insert> -->
+    </insert>
 
 
     

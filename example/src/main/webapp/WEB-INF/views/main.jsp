@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>Hello world!</h1>
- <form action = "/main">
+    
+    <p> 회원가입이 ${result }하셨습니다. </p>
     <table>
         <thead>
             <tr>
@@ -27,7 +28,6 @@
         </tbody>
     </table>
  
- </form>
  
 </body>
 </html>

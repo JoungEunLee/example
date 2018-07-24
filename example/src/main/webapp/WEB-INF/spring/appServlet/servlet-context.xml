@@ -24,6 +24,7 @@
 	<context:component-scan base-package="com.amy.example" />
 	<context:component-scan base-package="com.amy.example.controller" />
 	<context:component-scan base-package="com.amy.example.service" />
+	<context:component-scan base-package="com.amy.example.domain" />
 	
 	
 </beans:beans>

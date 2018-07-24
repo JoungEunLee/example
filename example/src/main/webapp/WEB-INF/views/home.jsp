@@ -8,12 +8,15 @@
 <body>
  
  <h1>Hello world!</h1>
-    
+    <form action = "/home" method = "POST">
 		ID : <input type="text" name="id"><br>
 		Password : <input type="password" name="pw"><br>		
 		이름 : <input type="text" name="name"><br><br>
  
- <a href = "<c:url value='/main'/>">입력</a>
+ 
+ <button type="submit" class="btn_button">입력</button>
+ 
+ </form>
 
  
 </body>

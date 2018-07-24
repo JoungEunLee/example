@@ -32,15 +32,20 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) throws Exception{
-		logger.info("home");
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public void homeGET(MemberVO memberVO, Model model) throws Exception{
 		
-		List<MemberVO> memberList = service.selectMember();
-        
-        model.addAttribute("memberList", memberList);
-
+		System.out.println("/home GET 방식입니다.");
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.POST)
+	public String homePOST(MemberVO memberVO, Model model) throws Exception{
 		
-		return "home";
+		System.out.println("/home POST 방식입니다.");
+		
+		service.insertMember(memberVO);
+		model.addAttribute("result", "성공");
+		
+		return "/main";
 	}
 }
