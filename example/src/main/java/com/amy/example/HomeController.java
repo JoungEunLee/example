@@ -46,6 +46,6 @@ public class HomeController {
 		service.insertMember(memberVO);
 		model.addAttribute("result", "¼º°ø");
 		
-		return "/main";
+		return "forward:/main";
 	}
 }

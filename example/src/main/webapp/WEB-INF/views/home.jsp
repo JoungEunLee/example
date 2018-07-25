@@ -8,7 +8,7 @@
 <body>
  
  <h1>Hello world!</h1>
-    <form action = "/home" method = "POST">
+    <form action = "/main" method = "POST">
 		ID : <input type="text" name="id"><br>
 		Password : <input type="password" name="pw"><br>		
 		이름 : <input type="text" name="name"><br><br>
