@@ -8,7 +8,7 @@
 <body>
     <h1>Hello world!</h1>
     
-    <p> 회원가입이 ${result }하셨습니다. </p>
+    <!-- <p> 회원가입이 ${result }하셨습니다. </p>  -->
     <table>
         <thead>
             <tr>
