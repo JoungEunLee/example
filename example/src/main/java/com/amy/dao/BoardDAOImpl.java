@@ -31,5 +31,25 @@ public class BoardDAOImpl implements BoardDAO {
  
         return sqlSession.selectList(Namespace+".selectBoard");
     }
+    
+    //게시글 상세보기
+    public BoardVO read(int bno) throws Exception{
+    	return sqlSession.selectOne(Namespace + ".view", bno);
+    }
+    
+  //게시글 조회수 증가
+    public void increaseViewcnt(int bno) throws Exception{
+    	sqlSession.update(Namespace + ".increaseViewcnt", bno);
+    }
+    
+  //게시글 수정
+    public void update(BoardVO vo) throws Exception{
+    	sqlSession.update(Namespace + ".updateArticle", vo);
+    }
+    
+  //게시글 삭제
+    public void delete(int bno) throws Exception{
+    	sqlSession.delete(Namespace + ".deleteArticle", bno);
+    }
  
 }

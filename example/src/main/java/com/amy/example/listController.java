@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.amy.dto.BoardVO;
@@ -59,5 +61,36 @@ public class listController {
         service.create(boardVO);
         return "redirect:/list";
     }
+    
+  //게시글 상세 조회
+    @RequestMapping(value="/view", method=RequestMethod.GET)
+    public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception{
+    	System.out.println("view 했다ㅏㅏㅏㅏㅏㅏㅏㅏㅏ");
+    	//조회수 증가 처리
+    	service.increaseViewcnt(bno,session);
+    	//모델(데이터) + 뷰(화면) 함게 전달하는 객체
+    	ModelAndView mav = new ModelAndView();
+    	mav.setViewName("view");
+    	mav.addObject("dto",service.read(bno));
+    	return mav;
+    }
+    
+    //게시글 수정
+    //폼에서 입력한 내용들은 @ModelAttribute BoardVo vo로 전달됨
+    @RequestMapping(value="/update", method=RequestMethod.POST)
+    public String update(@ModelAttribute BoardVO boardVO) throws Exception{
+    	System.out.println("update 했다ㅏㅏㅏㅏㅏㅏㅏㅏㅏ");
+        service.update(boardVO);
+        return "redirect:/list";
+    }
+    
+  //게시글 삭제
+    @RequestMapping(value="/delete")
+    public String delete(@RequestParam int bno) throws Exception{
+    	System.out.println("delete 했다ㅏㅏㅏㅏㅏㅏㅏㅏㅏ");
+        service.delete(bno);
+        return "redirect:/list";
+    }
+
 
 }

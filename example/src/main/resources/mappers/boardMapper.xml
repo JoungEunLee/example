@@ -38,4 +38,31 @@
         )
     </insert>
     
+    <!-- 게시글 상세보기 -->
+    <select id = "view" resultType="com.amy.dto.BoardVO">
+    	SELECT * FROM tbl_board
+    	WHERE bno = #{bno}
+    </select>
+    
+    <!-- 게시글 조회수 증가 처리 -->
+    <update id = "increaseViewcnt">
+    	UPDATE tbl_board SET viewcnt = viewcnt +1
+    	WHERE bno = #{bno}
+    </update>
+    
+    <!-- 게시글 수정-->
+    <update id = "updateArticle">
+    	UPDATE tbl_board 
+    	SET title = #{title},
+    		content = #{content},
+    		writer = #{writer}
+    	WHERE bno = #{bno}    	
+    </update>
+    
+    <!-- 게시글 삭제 -->
+    <delete id = "deleteArticle">
+    	DELETE FROM tbl_board
+    	WHERE bno = #{bno}    	
+    </delete>
+    
 </mapper>

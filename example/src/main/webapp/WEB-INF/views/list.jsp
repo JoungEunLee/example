@@ -31,7 +31,7 @@
       	   <c:forEach var="row" items = "${list }">
  			<tr>
  				<td align = "center">${row.bno }</td>
- 				<td><a name = "title" content_id = "${row.bno }">${row.title }</a></td>
+ 				<td><a href = "/view?bno=${row.bno}">${row.title }</a></td>
  				<td align = "center">${row.writer }</td>
  				<td align = "center">${row.regdate }</td>
  				<td align = "center">${row.viewcnt }</td>
