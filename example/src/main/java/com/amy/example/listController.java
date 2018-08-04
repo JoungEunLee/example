@@ -40,54 +40,45 @@ public class listController {
 	@RequestMapping(value = "/list")
 	    public ModelAndView list() throws Exception{
 	        List<BoardVO> list = service.selectBoard();
-	        // ModelAndView - ¸ðµ¨°ú ºä
 	        ModelAndView mav = new ModelAndView();
-	        mav.setViewName("list"); // ºä¸¦ list.jsp·Î ¼³Á¤
-	        mav.addObject("list", list); // µ¥ÀÌÅÍ¸¦ ÀúÀå
-	        return mav; // list.jsp·Î List°¡ Àü´ÞµÈ´Ù.
+	        mav.setViewName("list");
+	        mav.addObject("list", list);
+	        return mav; 
 	    }
 	
 	@RequestMapping(value="/write", method=RequestMethod.GET)
     public String write(){
-		System.out.println("write µé¾î¿Ô´Ù¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿");
-        return "/write"; // write.jsp·Î ÀÌµ¿
+		System.out.println("write ë“¤ì–´ì™”ë‹¤");
+        return "/write"; 
     }
 	
-	//°Ô½Ã±Û ÀÛ¼ºÃ³¸®
     @RequestMapping(value="/insert", method=RequestMethod.POST)
     public String insert(@ModelAttribute BoardVO boardVO) throws Exception{
-        //service.selectBoard();
-    	System.out.println("insert Çß´Ù¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿");
+    	System.out.println("insert ë“¤ì–´ì™”ë‹¤");
         service.create(boardVO);
         return "redirect:/list";
     }
     
-  //°Ô½Ã±Û »ó¼¼ Á¶È¸
     @RequestMapping(value="/view", method=RequestMethod.GET)
     public ModelAndView view(@RequestParam int bno, HttpSession session) throws Exception{
-    	System.out.println("view Çß´Ù¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿");
-    	//Á¶È¸¼ö Áõ°¡ Ã³¸®
+    	System.out.println("view ë“¤ì–´ì™”ë‹¤");
     	service.increaseViewcnt(bno,session);
-    	//¸ðµ¨(µ¥ÀÌÅÍ) + ºä(È­¸é) ÇÔ°Ô Àü´ÞÇÏ´Â °´Ã¼
     	ModelAndView mav = new ModelAndView();
     	mav.setViewName("view");
     	mav.addObject("dto",service.read(bno));
     	return mav;
     }
     
-    //°Ô½Ã±Û ¼öÁ¤
-    //Æû¿¡¼­ ÀÔ·ÂÇÑ ³»¿ëµéÀº @ModelAttribute BoardVo vo·Î Àü´ÞµÊ
     @RequestMapping(value="/update", method=RequestMethod.POST)
     public String update(@ModelAttribute BoardVO boardVO) throws Exception{
-    	System.out.println("update Çß´Ù¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿");
+    	System.out.println("update ë“¤ì–´ì™”ë‹¤");
         service.update(boardVO);
         return "redirect:/list";
     }
     
-  //°Ô½Ã±Û »èÁ¦
     @RequestMapping(value="/delete")
     public String delete(@RequestParam int bno) throws Exception{
-    	System.out.println("delete Çß´Ù¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿¤¿");
+    	System.out.println("delete ë“¤ì–´ì™”ë‹¤");
         service.delete(bno);
         return "redirect:/list";
     }

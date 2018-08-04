@@ -3,12 +3,12 @@ package com.amy.dto;
 import java.util.Date;
 
 public class BoardVO {
-	private int bno;            // 게시글 번호
-    private String title;       // 게시글 제목
-    private String content;     // 게시글 내용
-    private String writer;      // 게시글 작성자
-    private Date regdate;       // 게시글 작성일자 util.Date
-    private int viewcnt;        // 게시글 조회수
+	private int bno;           
+    private String title;      
+    private String content;   
+    private String writer;   
+    private Date regdate;      
+    private int viewcnt;       
     
     
     // Getter/Setter

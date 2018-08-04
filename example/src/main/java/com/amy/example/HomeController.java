@@ -35,16 +35,16 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public void homeGET(MemberVO memberVO, Model model) throws Exception{
 		
-		System.out.println("/home GET ¹æ½ÄÀÔ´Ï´Ù.");
+		System.out.println("/home GET ë°©ì‹ì…ë‹ˆë‹¤");
 	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public String homePOST(MemberVO memberVO, Model model) throws Exception{
 		
-		System.out.println("/home POST ¹æ½ÄÀÔ´Ï´Ù.");
+		System.out.println("/home POST ë°©ì‹ì…ë‹ˆë‹¤");
 		
 		service.insertMember(memberVO);
-		model.addAttribute("result", "¼º°ø");
+		model.addAttribute("result", "ì„±ê³µ");
 		
 		return "forward:/main";
 	}
